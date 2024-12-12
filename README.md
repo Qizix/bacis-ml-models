@@ -19,10 +19,13 @@ This project documents my journey through the book *"Hands-On Machine Learning w
    - **Metrics**: Cross-Entropy Loss, Accuracy.
    - **Data Preprocessing**: Normalization, One-Hot Encoding
 
-4. **Support Vector Machine (SVM)**  
+3. **Support Vector Machine (SVM)**  
    - **Description**: Linear and kernel-based SVMs for classification and regression tasks.
    - **Models**: LinearSVC, LinearSVR, SVC, SVR, RandomizedSearchCV, StandardScaler.
 
+4. **Decision Tree (Random Forest)**  
+   - **Description**: Tree-based model for classification and regression tasks. Also, self maded Random Forest from Decision Tree.
+   - **Models**: DecisionTreeClassifier, DecisionTree, GridSearchCV.
 ---
 
 ## 🤝 Contributions
