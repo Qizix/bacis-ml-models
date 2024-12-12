@@ -4,13 +4,6 @@ Welcome to my Machine Learning study repository! 🚀
 
 This project documents my journey through the book *"Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow"* 📘. Each day, I add new models and approaches as I progress, showcasing my understanding of key Machine Learning concepts and implementations.
 
-## ✨ Project Highlights
-- **Purpose**: To demonstrate my ML learning progress and practical application of concepts.
-- **Focus**: Hands-on coding and model building based on the book.
-- **Goal**: To build a solid ML foundation while creating a portfolio for future opportunities.
-
----
-
 ## 📚 Current Models
 
 ### Supervised Learning
