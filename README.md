@@ -26,6 +26,11 @@ This project documents my journey through the book *"Hands-On Machine Learning w
 4. **Decision Tree (Random Forest)**  
    - **Description**: Tree-based model for classification and regression tasks. Also, self maded Random Forest from Decision Tree.
    - **Models**: DecisionTreeClassifier, DecisionTree, GridSearchCV.
+
+5. **StackingClassifier**
+- **Description**: Combining multiple models to improve performance.
+- **Models**: RandomForestClassifier, ExtraTreesClassifier, SVC, StackingClassifier.
+
 ---
 
 ## 🤝 Contributions
