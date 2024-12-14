@@ -28,8 +28,11 @@ This project documents my journey through the book *"Hands-On Machine Learning w
    - **Models**: DecisionTreeClassifier, DecisionTree, GridSearchCV.
 
 5. **StackingClassifier**
-- **Description**: Combining multiple models to improve performance.
-- **Models**: RandomForestClassifier, ExtraTreesClassifier, SVC, StackingClassifier.
+   - **Description**: Combining multiple models to improve performance.
+   - **Models**: RandomForestClassifier, ExtraTreesClassifier, SVC, StackingClassifier.
+
+6. **Dimensional Reduction**
+   - **Description**: Dimensionality reduction using PCA and t-SNE.
 
 ---
 
