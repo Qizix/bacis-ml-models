@@ -34,6 +34,10 @@ This project documents my journey through the book *"Hands-On Machine Learning w
 6. **Dimensional Reduction**
    - **Description**: Dimensionality reduction using PCA and t-SNE.
 
+7. **Unsupervised Learning techniques**
+   - **Description**: Clustering, Dimensionality reduction, Anomaly detection, etc.
+   - **Models**: KMeans, GaussianMixture.
+
 ---
 
 ## 🤝 Contributions
@@ -48,3 +52,5 @@ This repository is inspired by the book *"Hands-On Machine Learning with Scikit-
 
 **Let's build, learn, and grow! 💡**
 Made with ❤️ for learning
+
+

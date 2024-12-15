@@ -74,3 +74,5 @@ predict_button.pack(side="right", padx=5)
 
 # Run the application
 root.mainloop()
+
+pca
