@@ -38,6 +38,9 @@ This project documents my journey through the book *"Hands-On Machine Learning w
    - **Description**: Clustering, Dimensionality reduction, Anomaly detection, etc.
    - **Models**: KMeans, GaussianMixture.
 
+8. **Perceptrone**
+   - **Description**: Basic neural network algoritm.
+
 ---
 
 ## 🤝 Contributions
