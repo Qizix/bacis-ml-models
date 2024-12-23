@@ -38,9 +38,15 @@ This project documents my journey through the book *"Hands-On Machine Learning w
    - **Description**: Clustering, Dimensionality reduction, Anomaly detection, etc.
    - **Models**: KMeans, GaussianMixture.
 
-8. **Perceptrone**
-   - **Description**: Basic neural network algoritm.
+8. **Perceptron**
+   - **Description**: Basic neural network algorithm for binary classification.
+   - **Key Features**: Linear decision boundary, online learning capability.
+   - **Implementation**: Custom implementation using NumPy.
 
+9. **MLP Classification**
+   - **Description**: Multi-layer Perceptron for multi-class classification.
+   - **Architecture**: Input layer, hidden layer(s), output layer with softmax activation.
+   - **Training**: Backpropagation algorithm, gradient descent optimization.
 ---
 
 ## 🤝 Contributions
