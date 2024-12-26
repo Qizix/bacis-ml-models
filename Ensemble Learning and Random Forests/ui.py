@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw, ImageOps
 import pickle  # Assuming your stack_clf is saved as a pickle file
 
 # Load your pre-trained model (stack_clf)
-with open('model.pkl', 'rb') as f:
+with open('mnist_model.pkl', 'rb') as f:
     stack_clf = pickle.load(f)
 
 def save_and_predict():
@@ -23,13 +23,14 @@ def save_and_predict():
     image = ImageOps.invert(image)
     
     # Convert to a NumPy array
-    img_array = np.array(image)  # Normalize pixel values
-    img_array = img_array.reshape(1, -1)  # Reshape for model input
+    img_array = np.array(image) / 255.0  # Normalize to range [0, 1]
+    img_array = img_array.astype(np.float32)  # Ensure correct dtype
     
+    img_array = np.expand_dims(img_array, axis=0)
     # Predict using the model
     print(img_array)
     prediction = stack_clf.predict(img_array)
-    prediction_label.config(text=f"Predicted: {prediction[0]}")
+    prediction_label.config(text=f"Predicted: {np.argmax(prediction)}")
 
 
 def clear_canvas():
@@ -74,5 +75,3 @@ predict_button.pack(side="right", padx=5)
 
 # Run the application
 root.mainloop()
-
-pca
