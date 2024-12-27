@@ -47,7 +47,12 @@ This project documents my journey through the book *"Hands-On Machine Learning w
    - **Description**: Multi-layer Perceptron for multi-class classification.
    - **Architecture**: Input layer, hidden layer(s), output layer with softmax activation.
    - **Training**: Backpropagation algorithm, gradient descent optimization.
+
+10. **Deep neural network**
+   - **Description**: Testing different actication functions, kernel_initializers, optimizers, etc.
+
 ---
+
 
 ## 🤝 Contributions
 While this project is primarily for personal learning, feel free to open issues or suggest improvements.
