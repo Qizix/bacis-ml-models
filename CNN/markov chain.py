@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Стани погоди
-states = ["Сонячно", "Дощ"]
+states = ["Sunny", "Rainy"]
 
 # Матриця переходу (ймовірності переходу з одного стану в інший)
 # P[i][j] - ймовірність переходу зі стану i в стан j
