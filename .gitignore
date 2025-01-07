@@ -177,3 +177,5 @@ pyrightconfig.json
 /text preprocession/aclImdb
 /text preprocession/datasets
 /text preprocession/data
+RNN/jsb_chorales
+RNN/datasets
