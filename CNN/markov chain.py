@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 # Стани погоди
 states = ["Sunny", "Rainy"]
 
-1
 P = np.array([[0.7, 0.3],
               [0.4, 0.6]])
 
@@ -29,9 +28,9 @@ plt.figure(figsize=(10, 6))
 plt.plot(days, state_history, marker='o', linestyle='-', color='blue')
 
 # Налаштування графіка
-plt.title("Прогноз погоди на основі марківського ланцюга")
+plt.title("")
 plt.xlabel("День")
-plt.ylabel("Стан погоди (0: Сонячно, 1: Дощ)")
+plt.ylabel(")")
 plt.xticks(days) # Показуємо всі дні на осі x
 plt.yticks([0, 1], states) # Замінюємо цифри на назви станів
 plt.grid(True)
@@ -53,7 +52,8 @@ for _ in range(num_days + 1):
     current_distribution = np.dot(current_distribution, P) # Перемножуємо вектор ймовірностей на матрицю переходу
 
 # Візуалізація ймовірності дощу
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(
+    10, 6))
 plt.plot(days, rain_probabilities, marker='o', linestyle='-', color='red')
 plt.title("Ймовірність дощу протягом прогнозованого періоду")
 plt.xlabel("День")
