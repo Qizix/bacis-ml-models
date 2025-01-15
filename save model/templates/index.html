@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Recognition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 800px;
+        }
+        .canvas-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        canvas {
+            border: 2px solid #333;
+            border-radius: 4px;
+        }
+        #result {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 200px;
+            width: 280px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .bar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .bar {
+            width: 20px;
+            background-color: #4CAF50;
+            transition: height 0.3s ease;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        .bar-label {
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-time Digit Recognition</h1>
+    <div class="container">
+        <div class="canvas-container">
+            <canvas id="canvas" width="280" height="280"></canvas>
+            <button onclick="clearCanvas()">Clear</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let lastPredictionTime = 0;
+        const predictionDelay = 200;
+
+        function clearCanvas() {
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            updateBars(new Array(10).fill(0));
+        }
+
+        clearCanvas();
+
+        function startDrawing(e) {
+            isDrawing = true;
+            draw(e);
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+            ctx.beginPath();
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+
+            ctx.lineWidth = 20;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = 'black';
+
+            ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+
+            const currentTime = Date.now();
+            if (currentTime - lastPredictionTime > predictionDelay) {
+                predict();
+                lastPredictionTime = currentTime;
+            }
+        }
+
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+
+        function predict() {
+            const imageData = canvas.toDataURL('image/png');
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ image: imageData })
+            })
+            .then(response => response.json())
+            .then(data => {
+                updateBars(data.probabilities);
+            });
+        }
+
+        function updateBars(probabilities) {
+            const resultDiv = document.getElementById('result');
+            if (resultDiv.children.length === 0) {
+                probabilities.forEach((_, index) => {
+                    const barContainer = document.createElement('div');
+                    barContainer.className = 'bar-container';
+                    const bar = document.createElement('div');
+                    const label = document.createElement('div');
+                    
+                    bar.className = 'bar';
+                    label.className = 'bar-label';
+                    label.textContent = index;
+                    
+                    barContainer.appendChild(bar);
+                    barContainer.appendChild(label);
+                    resultDiv.appendChild(barContainer);
+                });
+            }
+            
+            probabilities.forEach((prob, index) => {
+                const bar = resultDiv.children[index].querySelector('.bar');
+                bar.style.height = `${prob * 180}px`;  // Scale to fit within the 200px height
+            });
+        }
+
+        updateBars(new Array(10).fill(0));
+    </script>
+</body>
+</html>

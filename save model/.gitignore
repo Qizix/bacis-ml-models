@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+venv/
+.env
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Model files (if you don't want to track large binary files)
+*.keras
+
+# Temporary files
+*.log
+*.tmp
+
+# OS generated files
+.DS_Store
+Thumbs.db
