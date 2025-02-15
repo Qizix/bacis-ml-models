@@ -84,11 +84,6 @@ This project documents my journey through the book *"Hands-On Machine Learning w
 ---
 
 
-## 🤝 Contributions
-While this project is primarily for personal learning, feel free to open issues or suggest improvements.
-
----
-
 ## 🌟 Acknowledgments
 This repository is inspired by the book *"Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow"*. Special thanks to the authors for providing an incredible learning resource.
 
